@@ -17,6 +17,13 @@ describe port(80), :skip do
   it { should_not be_listening }
 end
 
+# This is a test to establish if the apache server is installed.
 describe package('httpd') do
   it { should be_installed }
+end
+
+# Test that the service is enabled & running
+describe service('httpd') do
+  it { should be_enabled }
+  it { should be_running }
 end
