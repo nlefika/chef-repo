@@ -13,8 +13,8 @@ unless os.windows?
 end
 
 # This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe port(80) do
+  it { should be_listening }
 end
 
 # This is a test to establish if the apache server is installed.
@@ -26,4 +26,8 @@ end
 describe service('httpd') do
   it { should be_enabled }
   it { should be_running }
+end
+
+describe command('curl localhost') do
+  its('stdout') { should match /hello/ }
 end
