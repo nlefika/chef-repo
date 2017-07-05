@@ -29,5 +29,5 @@ describe service('httpd') do
 end
 
 describe command('curl localhost') do
-  its('stdout') { should match /hello/ }
+  its('stdout') { should match /Hello/ }
 end
